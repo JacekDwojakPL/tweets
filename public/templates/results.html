@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Twitter analyzer &middot results</title>
+  </head>
+  <body>
+    <table>
+      <tr>
+        <th>ID</th>
+        <th>Date</th>
+        <th>Text</th>
+    </tr>
+    {% for tweet in tweets %}
+    <tr>
+      <td>{{ tweet.id }}</td>
+      <td>{{ tweet.date }}</td>
+      <td>{{ tweet.text }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+  </body>
+</html>
