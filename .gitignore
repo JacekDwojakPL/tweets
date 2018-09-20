@@ -60,3 +60,16 @@ typings/
 
 # next.js build output
 .next
+
+#babel
+.babelrc
+
+#webpack
+webpack.config.js
+
+
+#cache
+__pycache__/
+._index.html
+package.json
+.gitignore
