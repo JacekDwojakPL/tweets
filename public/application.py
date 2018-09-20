@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, url_for
+from flask import Flask, render_template, request, url_for, jsonify
 from analyzer import Analyzer
 import helpers
 
@@ -14,4 +14,4 @@ def search():
     screen_name = request.form.get("screen_name")
     tweet_count = request.form.get("count")
     tweets = helpers.get_user_timeline(screen_name, int(tweet_count))
-    return render_template("results.html", tweets=tweets)
+    return jsonify(tweets)

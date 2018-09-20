@@ -4,7 +4,7 @@ from nltk.tokenize import TweetTokenizer
 class Analyzer():
     def __init__(self):
         self.test_string = ""
-        self.cout = 0
+        self.count = 0
         self.tokenizer = TweetTokenizer()
 
 
