@@ -2,14 +2,14 @@ import React from "react";
 import { render } from "react-dom";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Landing from "./Landing.jsx";
-import ResultChart from "./ResultChart.jsx";
+import Tweets from "./Tweets.jsx";
 
 const App = () => (
   <BrowserRouter>
     <div className="application">
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route path="/chart" component={ResultChart} />
+        <Route path="/tweets" component={Tweets} />
       </Switch>
     </div>
   </BrowserRouter>

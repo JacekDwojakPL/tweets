@@ -8,11 +8,12 @@ class Analyzer():
         self.tokenizer = TweetTokenizer()
 
 
-    def alanyze(self, tweet, word):
+    def analyze(self, tweet, word):
+        self.count = 0
         self.test_string = word
         words = self.tokenizer.tokenize(tweet)
         for word in words:
-            if self.test_string in words:
+            if self.test_string == word:
                 self.count +=1
         return self.count
 

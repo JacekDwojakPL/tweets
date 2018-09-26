@@ -4,10 +4,8 @@ from twython import Twython
 from twython import TwythonAuthError, TwythonError, TwythonRateLimitError
 
 
-def get_user_timeline(screen_name, count):
+def get_user_timeline(screen_name):
 
-    if count < 1 or count > 200:
-        raise RuntimeError("Invalid count!")
     if not os.environ.get("API_KEY"):
         raise RuntimeError("API_KEY not set!")
     if not os.environ.get("API_SECRET"):
@@ -20,12 +18,13 @@ def get_user_timeline(screen_name, count):
         user = twitter.lookup_user(screen_name=screen_name.lstrip("@"))
         if user[0]["protected"]:
             return None
-        tweets = twitter.get_user_timeline(screen_name=screen_name, count=count, tweet_mode="extended")
+        tweets = twitter.get_user_timeline(screen_name=screen_name, count=200, tweet_mode="extended")
         for tweet in tweets:
             single_tweet = {
                 "id": id,
-                "date": tweet["created_at"],
-                "text": html.unescape(tweet["full_text"].replace("\n", " "))
+                "time": tweet["created_at"],
+                "text": html.unescape(tweet["full_text"].replace("\n", " ")),
+                "count": 0
             }
             return_array.append(single_tweet)
             id += 1

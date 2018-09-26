@@ -1,25 +1,55 @@
 import React from "React";
 import { Link } from "react-router-dom";
-import { BarChart, Bar, CartesianGrid, XAxis, YAxis } from "recharts";
+import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 
-const data = [
-  { name: "dupa", uv: 35 },
-  { name: "dupa", uv: 45 },
-  { name: "dupa", uv: 55 },
-  { name: "dupa", uv: 65 },
-  { name: "dupa", uv: 75 },
-  { name: "dupa", uv: 85 }
-];
+const ResultChart = props => {
+  const tweets = props.tweets;
+  var data = [];
 
-const ResultChart = () => (
-  <div className="example-chart">
-    <BarChart width={600} height={300} data={data}>
-      <Bar type="monotone" dataKey="uv" stroke="#8884d8" barSize={30} />
-      <CartesianGrid stroke="#ccc" />
-      <XAxis dataKey="name" />
-      <YAxis />
-    </BarChart>
-  </div>
-);
+  for (var index = 0; index < tweets.length; index++) {
+    if (index == 0) {
+      data.push({
+        count: tweets[index].count,
+        time: Date.parse(tweets[index].time)
+      });
+    } else if (index > 0) {
+      const current = new Date(tweets[index].time).getDay();
+      const previous = new Date(tweets[index - 1].time).getDay();
+
+      if (current === previous) {
+        data[data.length - 1].count += tweets[index].count;
+      } else {
+        data.push({
+          count: tweets[index].count,
+          time: Date.parse(tweets[index].time)
+        });
+      }
+    }
+  }
+
+  return (
+    <div className="example-chart">
+      <LineChart width={1000} height={420} data={data}>
+        <XAxis
+          scale="time"
+          dataKey="time"
+          domain={["dataMin", "dataMax"]}
+          name="Time"
+          tickFormatter={time => {
+            const date = new Date(time);
+            return `${date.getDate()}.${date.getMonth() +
+              1}.${date.getFullYear()}`;
+          }}
+          type="number"
+          interval="preserveStartEnd"
+          dy={10}
+        />
+        <YAxis type="number" domain={[0, "dataMax"]} />
+        <CartesianGrid stroke="#eee" strokeDasharray="5 5" />
+        <Line type="monotone" dataKey="count" stroke="#8884d8" />
+      </LineChart>
+    </div>
+  );
+};
 
 export default ResultChart;
