@@ -4,6 +4,8 @@ from twython import Twython
 from twython import TwythonAuthError, TwythonError, TwythonRateLimitError
 
 
+twitter = Twython(os.environ.get("API_KEY"), os.environ.get("API_SECRET"),os.environ.get("OAUTH_TOKEN"), os.environ.get("OAUTH_TOKEN_SECRET"))
+
 def get_user_timeline(screen_name):
 
     if not os.environ.get("API_KEY"):
@@ -14,7 +16,6 @@ def get_user_timeline(screen_name):
     try:
         return_array = []
         id = 0
-        twitter = Twython(os.environ.get("API_KEY"), os.environ.get("API_SECRET"))
         user = twitter.lookup_user(screen_name=screen_name.lstrip("@"))
         if user[0]["protected"]:
             return None
@@ -36,3 +37,7 @@ def get_user_timeline(screen_name):
         raise("You've hit rate limit") from None
     except TwythonError:
         return None
+
+def search_for_user(username):
+    results = twitter.search_users(q=username, count=5)
+    return results

@@ -1,4 +1,4 @@
-import React from "React";
+import React from "react";
 import { Link } from "react-router-dom";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 

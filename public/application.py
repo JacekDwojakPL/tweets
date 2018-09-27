@@ -21,3 +21,19 @@ def search():
     for tweet in tweets:
         tweet["count"] = tweet_analyzer.analyze(tweet["text"], test_word)
     return jsonify(tweets)
+
+
+@app.route("/user")
+def user():
+    response = []
+    users = helpers.search_for_user(request.args.get("q"))
+    for user in users:
+        new_user = {
+            "name": user["name"],
+            "screen_name": user["screen_name"],
+            "id": user["id"]
+        }
+        response.append(new_user)
+
+
+    return jsonify(response)

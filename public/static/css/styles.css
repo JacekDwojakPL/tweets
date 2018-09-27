@@ -3,3 +3,9 @@ body,
 .application {
   height: 100%;
 }
+
+.suggestions-div {
+  position: absolute;
+  top: 8%;
+  left: 8%;
+}
