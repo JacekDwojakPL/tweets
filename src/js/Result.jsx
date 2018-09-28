@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-import ResultChart from "./ResultChart.jsx";
+import Chart from "./Chart.jsx";
 import axios from "axios";
 
-class Tweets extends Component {
+class Result extends Component {
   state = {
     screen_name: "",
     count: "",
@@ -34,7 +34,7 @@ class Tweets extends Component {
     } else {
       return (
         <div>
-          <ResultChart tweets={this.state.tweets} />
+          <Chart tweets={this.state.tweets} />
           <Link to="/">Try again</Link>
         </div>
       );
@@ -42,4 +42,4 @@ class Tweets extends Component {
   }
 }
 
-export default Tweets;
+export default Result;

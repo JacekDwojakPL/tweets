@@ -1,11 +1,95 @@
+@import url("https://fonts.googleapis.com/css?family=Montserrat|Raleway");
+
+html,
 body,
 #app,
 .application {
   height: 100%;
+  margin: 0;
+}
+
+input[type="text"] {
+  padding: 5px;
+  margin: 5px;
+  font-family: "Raleway", sans-serif;
+  width: 150px;
+}
+
+.landing-div {
+  height: 100%;
+  display: grid;
+  grid-template-rows: 35% 35% 30%;
+  background-color: #2196f3;
+}
+
+.landing-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Raleway", sans-serif;
+  font-size: 45px;
+}
+
+.landing-paragraph {
+  font-family: "Montserrat", sans-serif;
+  color: white;
+  line-height: 1.5em;
+  letter-spacing: 0.08em;
+  padding: 15px;
+  margin: 15px;
+  font-size: 12px;
+}
+
+.search-div {
+  display: grid;
+  grid-template-rows: 50% 50%;
+  justify-content: center;
+}
+
+.search-box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-style: solid;
+  border-color: white;
+  border-width: 1px;
+  border-radius: 10px;
+  padding: 15px;
+}
+
+.search-box span {
+  padding: 5px;
+  font-family: "Montserrat", sans-serif;
+}
+
+.search-send {
+  width: 100px;
+  margin: 10px;
+  background-color: white;
+  text-align: center;
+  cursor: pointer;
+}
+
+.search-send a {
+  text-decoration: none;
+  color: black;
+}
+
+.search-send:active {
+  width: 100px;
+  margin: 10px;
+  background-color: black;
+  text-align: center;
+  cursor: pointer;
+}
+
+.search-send:active a {
+  text-decoration: none;
+  color: white;
 }
 
 .suggestions-div {
-  position: absolute;
-  top: 8%;
-  left: 8%;
+  position: relative;
+  top: -30%;
+  left: 7%;
 }

@@ -26,14 +26,16 @@ def search():
 @app.route("/user")
 def user():
     response = []
-    users = helpers.search_for_user(request.args.get("q"))
-    for user in users:
-        new_user = {
-            "name": user["name"],
-            "screen_name": user["screen_name"],
-            "id": user["id"]
-        }
-        response.append(new_user)
-
-
-    return jsonify(response)
+    input = request.args.get("q").strip()
+    if len(input) > 0 and input != " ":
+        users = helpers.search_for_user(input)
+        for user in users:
+            new_user = {
+                "name": user["name"],
+                "screen_name": "@" + user["screen_name"],
+                "id": user["id"]
+                }
+            response.append(new_user)
+        return jsonify(response)
+    else:
+        return jsonify([{"name": "Nothing found", "screen_name": "", "id": ""}])

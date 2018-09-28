@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { LineChart, Line, CartesianGrid, XAxis, YAxis } from "recharts";
 
-const ResultChart = props => {
+const Chart = props => {
   const tweets = props.tweets;
   var data = [];
 
@@ -52,4 +52,4 @@ const ResultChart = props => {
   );
 };
 
-export default ResultChart;
+export default Chart;
