@@ -57,23 +57,27 @@ class Search extends Component {
     return (
       <div className="search-div">
         <div className="search-box">
-          <span>Name: </span>
-          <input
-            onInput={this.handleInputChange}
-            type="text"
-            placeholder="User name"
-            name="user_name"
-            value={this.state.user_name}
-          />
-          <span>Search for: </span>
-          <input
-            onInput={this.handleInputChange}
-            type="text"
-            placeholder="Word"
-            name="test_word"
-            value={this.state.test_word}
-          />
-          <span className="search-send">
+          <div className="col">
+            <span>Search</span>
+            <input
+              onInput={this.handleInputChange}
+              type="text"
+              placeholder="User name"
+              name="user_name"
+              value={this.state.user_name}
+            />
+          </div>
+          <div className="col">
+            <span>for</span>
+            <input
+              onInput={this.handleInputChange}
+              type="text"
+              placeholder="Word"
+              name="test_word"
+              value={this.state.test_word}
+            />
+          </div>
+          <div className="search-send">
             <Link
               to={{
                 pathname: "/result",
@@ -85,7 +89,7 @@ class Search extends Component {
             >
               Go
             </Link>
-          </span>
+          </div>
         </div>
         {showSuggestions ? (
           <div className="suggestions-div">
