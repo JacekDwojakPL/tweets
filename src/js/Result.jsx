@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Chart from "./Chart.jsx";
+import Spinner from "./Spinner.jsx";
 import axios from "axios";
 
 class Result extends Component {
@@ -30,7 +31,7 @@ class Result extends Component {
         </div>
       );
     } else if (this.state.status === "fetch") {
-      return <div>Please wait...</div>;
+      return <Spinner />;
     } else {
       return (
         <div>
