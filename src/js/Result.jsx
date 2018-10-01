@@ -34,9 +34,11 @@ class Result extends Component {
       return <Spinner />;
     } else {
       return (
-        <div>
-          <Chart tweets={this.state.tweets} />
-          <Link to="/">Try again</Link>
+        <div className="chart-wrapper">
+          <Chart
+            tweets={this.state.tweets}
+            word={this.props.location.state.test_word}
+          />
         </div>
       );
     }

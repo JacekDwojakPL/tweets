@@ -77,7 +77,7 @@ class Search extends Component {
               value={this.state.test_word}
             />
           </div>
-          <div className="search-send">
+          <div className="link-wrapper">
             <Link
               to={{
                 pathname: "/result",

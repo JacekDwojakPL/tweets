@@ -6,18 +6,19 @@ const Landing = () => (
     <div className="landing-header">
       <h2>Twitter Counter</h2>
     </div>
-    <Search />
     <div className="landing-paragraph">
       <p>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim
-        veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea
-        commodo consequat. Duis aute irure dolor in reprehenderit in voluptate
-        velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint
-        occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum
+        Twitter counter is a simple tool that allows you to parse recent 200
+        tweets from an account and count apperance of given word. <br />Created
+        for demonstration purposes only with React, React-Router, Recharts and
+        Flask.
+        <br />
+        <a href="https://github.com/JacekDwojakPL/tweets" target="_blank">
+          GitHub repository
+        </a>
       </p>
     </div>
+    <Search />
   </div>
 );
 
